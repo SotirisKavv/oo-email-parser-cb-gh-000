@@ -4,14 +4,19 @@
 # or whitespace (' ').
 class EmailAddressParser
 
-  attr_accessor :email_addresses
+  attr_accessor :email_addresses_filetext, :email_addresses
 
   def initialize(email_addresses)
-    @email_addresses = email_addresses
+    @email_addresses_filetext = email_addresses
+    email_addresses = []
   end
 
   def parse
-    self.email_addresses.split(/ |, |,/)
+    self.email_addresses_filetext.split(/ |, |,/).each do |email|
+      if !email_addresses.include?(email)
+        email_addresses << email
+    end
+    email_addresses
   end
 
 end
