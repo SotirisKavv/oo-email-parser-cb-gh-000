@@ -15,6 +15,7 @@ class EmailAddressParser
     self.email_addresses_filetext.split(/ |, |,/).each do |email|
       if !email_addresses.include?(email)
         email_addresses << email
+      end
     end
     email_addresses
   end
