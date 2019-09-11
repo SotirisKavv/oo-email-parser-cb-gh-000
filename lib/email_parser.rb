@@ -8,16 +8,16 @@ class EmailAddressParser
 
   def initialize(email_addresses)
     @email_addresses_filetext = email_addresses
-    email_addresses = []
+    @email_addresses = []
   end
 
   def parse
     self.email_addresses_filetext.split(/ |, |,/).each do |email|
-      if !email_addresses.include?(email)
-        email_addresses << email
+      if !@email_addresses.include?(email)
+        @email_addresses << email
       end
     end
-    email_addresses
+    @email_addresses
   end
 
 end
